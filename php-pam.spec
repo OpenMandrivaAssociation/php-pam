@@ -6,7 +6,7 @@
 Summary:	PAM integration for PHP
 Name:		php-%{modname}
 Version:	1.0.0
-Release:	%mkrel 5
+Release:	%mkrel 6
 Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/pam
@@ -30,15 +30,7 @@ for authentication tasks.
 perl -pi -e "s|/lib\b|/%{_lib}|g" config.m4
 
 %build
-export CFLAGS="%{optflags}"
-export CXXFLAGS="%{optflags}"
-export FFLAGS="%{optflags}"
-
-%if %mdkversion >= 200710
-export CFLAGS="$CFLAGS -fstack-protector"
-export CXXFLAGS="$CXXFLAGS -fstack-protector"
-export FFLAGS="$FFLAGS -fstack-protector"
-%endif
+%serverbuild
 
 # the autofoo stuff is too borked at the moment...
 #phpize
