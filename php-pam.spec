@@ -5,12 +5,12 @@
 
 Summary:	PAM integration for PHP
 Name:		php-%{modname}
-Version:	1.0.0
-Release:	%mkrel 6
+Version:	1.0.1
+Release:	%mkrel 1
 Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/pam
-Source0:	http://pecl.php.net/get/%{modname}-%{version}.tar.bz2
+Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	pam-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
