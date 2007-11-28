@@ -5,8 +5,8 @@
 
 Summary:	PAM integration for PHP
 Name:		php-%{modname}
-Version:	1.0.1
-Release:	%mkrel 2
+Version:	1.0.2
+Release:	%mkrel 1
 Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/pam
@@ -32,17 +32,16 @@ perl -pi -e "s|/lib\b|/%{_lib}|g" config.m4
 %build
 %serverbuild
 
-# the autofoo stuff is too borked at the moment...
-#phpize
-#%%configure2_5x --with-libdir=%{_lib} \
-#    --with-%{modname}=shared,/%{_lib}
-#
-#%make
-#mv modules/*.so .
+phpize
+%configure2_5x --with-libdir=%{_lib} \
+    --with-%{modname}=shared,/%{_lib}
 
-%{_usrsrc}/php-devel/buildext %{modname} "pam.c" \
-    "-L/%{_lib}/security -L/%{_lib} -I%{_includedir}/security -lpam -ldl" \
-    "-DCOMPILE_DL_PAM -DHAVE_PAM -DHAVE_SECURITY_PAM_APPL_H"
+%make
+mv modules/*.so .
+
+#%{_usrsrc}/php-devel/buildext %{modname} "pam.c" \
+#    "-L/%{_lib}/security -L/%{_lib} -I%{_includedir}/security -lpam -ldl" \
+#    "-DCOMPILE_DL_PAM -DHAVE_PAM -DHAVE_SECURITY_PAM_APPL_H"
 
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot} 
