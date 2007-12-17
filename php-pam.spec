@@ -13,7 +13,6 @@ URL:		http://pecl.php.net/package/pam
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	pam-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 This extension provides PAM (Pluggable Authentication Modules) integration. PAM
