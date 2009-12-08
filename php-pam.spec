@@ -5,14 +5,15 @@
 
 Summary:	PAM integration for PHP
 Name:		php-%{modname}
-Version:	1.0.2
-Release:	%mkrel 12
+Version:	1.0.3
+Release:	%mkrel 1
 Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/pam
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	pam-devel
+BuildRequires:	dos2unix
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -28,6 +29,12 @@ for authentication tasks.
 
 # lib64 fix
 perl -pi -e "s|/lib\b|/%{_lib}|g" config.m4
+
+# attribs fix
+find -type f | xargs chmod 644
+
+# crlf fix
+find -type f | xargs dos2unix -U
 
 %build
 %serverbuild
