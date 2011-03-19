@@ -6,7 +6,7 @@
 Summary:	PAM integration for PHP
 Name:		php-%{modname}
 Version:	1.0.3
-Release:	%mkrel 7
+Release:	%mkrel 8
 Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/pam
