@@ -34,7 +34,7 @@ perl -pi -e "s|/lib\b|/%{_lib}|g" config.m4
 find -type f | xargs chmod 644
 
 # crlf fix
-find -type f | xargs dos2unix -U
+find -type f | xargs dos2unix
 
 %build
 %serverbuild
