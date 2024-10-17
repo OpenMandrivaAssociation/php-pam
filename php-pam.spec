@@ -9,7 +9,7 @@ Version:	1.0.3
 Release:	13
 Group:		Development/PHP
 License:	PHP License
-URL:		http://pecl.php.net/package/pam
+URL:		https://pecl.php.net/package/pam
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	pam-devel
